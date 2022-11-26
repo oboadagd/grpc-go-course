@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package userlocation;
+
+option go_package = "github.com/Clement-Jean/grpc-go-course/userlocation/proto";
+
+message PingRequest {
+  string message = 1;
+}
+
+message PingResponse {
+  string result = 1;
+}
+
+message SaveLocationRequest {
+  string  userName = 1;
+  float Latitude = 2;
+  float Longitude = 3;
+}
+
+message SaveLocationResponse {
+  string error = 1;
+}
+
+service UserLocationService {
+  rpc Ping(PingRequest) returns (PingResponse);
+  rpc SaveLocation(SaveLocationRequest) returns (SaveLocationResponse);
+};
